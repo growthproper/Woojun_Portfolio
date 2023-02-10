@@ -5,12 +5,10 @@ using UnityEngine.AI;
 public class Monster_Animator : MonoBehaviour
 {
     //몬스터 애니메이터 컴포넌트
-
     //Animator 컴포넌트 가져오기 위한 변수 지정
     public Animator monsterAni;
     private SkinnedMeshRenderer meshRenderer;
     private Color originColor;
-
     //Character_Animator형 변수 지정
     GameObject player;
     float rotateSpeed;
@@ -39,7 +37,6 @@ public class Monster_Animator : MonoBehaviour
         meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         //몬스터 애니메이터의 Animator컴포넌트 가져옴
         monsterAni = transform.GetComponent<Animator>();
-
         GameObject attackCollisionMonster = transform.Find("AttackCollisionMonster").gameObject;
         AttackCollisionMonster = attackCollisionMonster;
     }
@@ -48,7 +45,6 @@ public class Monster_Animator : MonoBehaviour
         rotateSpeed = 5.0f;
         moveSpeed = 2.0f;        
         originColor = meshRenderer.material.color;
-
         monsterState = MonsterState.Idle;
         originPos = transform.position;
         originRot = transform.rotation;
@@ -64,22 +60,7 @@ public class Monster_Animator : MonoBehaviour
     public void AttackCollisionOffMons()
     {
         AttackCollisionMonster.SetActive(false);
-    }
-    //void MonsterMove()
-    //{
-    //    //플레이어의 위치에서 거리를 더하여 그 위치에 몬스터 위치를 저장
-    //    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * moveSpeed);
-        
-    //}
-    //void MonsterRotate()
-    //{
-    //    Vector3 tmpEnd = transform.position;
-    //    tmpEnd.y = transform.position.y;
-    //    Vector3 dir = tmpEnd - transform.position;
-    //    Vector3 newDir = Vector3.RotateTowards(transform.forward, dir.normalized, Time.deltaTime * rotateSpeed, 0);
-    //    Quaternion rotation = Quaternion.LookRotation(newDir.normalized);
-    //    transform.rotation = rotation;
-    //}
+    }    
     private void Update()
     {
         // 현재 상태를 체크하여 해당 상태별로 정해진 기능을 수행하게 하고 싶다.
@@ -117,11 +98,9 @@ public class Monster_Animator : MonoBehaviour
             // 현재 상태를 Return 상태로 전환한다.
             monsterState = MonsterState.Return;           
         }
-
         // 만일, 플레이어와의 거리가 공격 범위 밖이라면 플레이어를 향해 이동한다.
         else if (Vector3.Distance(transform.position, player.transform.position) > attackDistance)
-        {
-           
+        {           
             // 네비게이션으로 접근하는 최소 거리를 공격 가능 거리로 설정한다.
             navMonster.stoppingDistance = attackDistance;
 
@@ -181,34 +160,5 @@ public class Monster_Animator : MonoBehaviour
             // 대기 애니메이션으로 전환하는 트랜지션을 호출한다.
             monsterAni.SetInteger("aniMonster", 0);
         }
-    }
-    //private void FixedUpdate()
-    //{
-    //    float distance = Vector3.Distance(transform.position, player.transform.position);
-
-    //    if (distance <= 4.0f)
-    //    {
-    //        MonsterMove();
-    //        transform.LookAt(player.transform.position);
-    //        if (player.gameObject.activeSelf == false)
-    //        {
-    //            monsterAni.SetInteger("aniMonster", 0);
-    //        }
-    //        else
-    //        {
-    //            monsterAni.SetInteger("aniMonster", 2);
-    //        }
-    //    }
-    //    else if (distance <= 6.0f)
-    //    {
-    //        MonsterRotate();
-    //        monsterAni.SetInteger("aniMonster", 1);
-    //        MonsterMove();
-
-    //    }
-    //    else
-    //    {
-    //        monsterAni.SetInteger("aniMonster", 0);
-    //    }
-    //}
+    }   
 }
