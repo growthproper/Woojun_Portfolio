@@ -29,8 +29,7 @@ public class Character_Animator : MonoBehaviour
     public AudioSource hitAttack;
 
     void Start()
-    {        
-        
+    {                
         moveSpeed = 3.0f;
         rotateSpeed = 100f;
         end = transform.position;
@@ -43,7 +42,6 @@ public class Character_Animator : MonoBehaviour
         hitAttack = GetComponent<AudioSource>();
         boomAttackClip = Resources.Load<AudioClip>("Audio/boomHit");
         attackClip = Resources.Load<AudioClip>("Audio/swordEffect");
-
     }
 
     //재귀호출을 사용해서 매개변수로 전달된 이름의 Transform을 검색하여 반환
@@ -83,7 +81,6 @@ public class Character_Animator : MonoBehaviour
     public void StrCollision()
     {
         StrAttackCollision.SetActive(true);
-
         //boom효과음        
         boomAttack.clip = boomAttackClip;
         boomAttack.Play();
@@ -100,10 +97,8 @@ public class Character_Animator : MonoBehaviour
     {
         WeaponEffect.SetActive(false);
     }
-
     void Update()
-    {
-        
+    {        
         //마우스 픽에 의한 마우스로 선택한 게임 공간 상의 좌표를 출력
         if (Input.GetMouseButtonDown(1))
         {
@@ -117,70 +112,10 @@ public class Character_Animator : MonoBehaviour
             }
             aniPlayer.SetInteger("aniIndex", 1);
         }
-
         if (navCharacter.destination == transform.position)
         {
             //navCharacter.destination = transform.position;
             aniPlayer.SetInteger("aniIndex", 0);
-        }
-        //else if (navCharacter.destination != transform.position)
-        //{
-        //    aniPlayer.SetInteger("aniIndex", 1);
-        //}
-        //키보드 입력에 따른 캐릭터 이동하면서 Run
-
-        //    if (navCharacter.destination == transform.position)
-        //{
-        //    transform.position = navCharacter.destination;
-        //    aniPlayer.SetInteger("aniIndex", 0);
-        //}
-        //else if (navCharacter.destination != transform.position)
-        //{
-        //    aniPlayer.SetInteger("aniIndex", 1);
-        //    if (Input.GetKeyDown(KeyCode.Z))
-        //    {
-        //        //캐릭터가 이동 목표 지점으로 가는 중간에 공격 모션이 진행되면 그 위치에서 멈춤
-        //        navCharacter.destination = transform.position;
-        //        aniPlayer.SetInteger("aniIndex", 2);
-        //    }
-        //}
-        ////키보드 입력에 따른 캐릭터 공격1 모션
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    aniPlayer.SetInteger("aniIndex", 2);
-        //}
-        //if (Input.GetKeyUp(KeyCode.Z))
-        //{
-        //    aniPlayer.SetInteger("aniIndex", 0);
-
-
-        //수평축은 회전값 할당
-        //rotates = Input.GetAxis("garo");
-        //가로축은 이동값 할당
-        //move = Input.GetAxis("sero");
-        //Rotate();
-        //Move();
-
-        //if (Input.GetKeyDown(KeyCode.W))
-        //{
-        //    aniPlayer.SetInteger("aniIndex", 1);
-        //}
-        //if (Input.GetKeyUp(KeyCode.W))
-        //{
-        //    aniPlayer.SetInteger("aniIndex", 0);
-        //}
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    aniPlayer.SetInteger("aniIndex", 5);
-        //}
-        //if (Input.GetKeyUp(KeyCode.S))
-        //{
-        //    aniPlayer.SetInteger("aniIndex", 0);
-        //}
-
+        }  
     }
 }
-   
-
-
-
