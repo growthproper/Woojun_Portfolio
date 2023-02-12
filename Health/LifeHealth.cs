@@ -19,7 +19,7 @@ public class LifeHealth : MonoBehaviour, IDamageAttack
     // 플레이어 데미지 처리
     public virtual void DamagePlayer(float damage)
     {
-        // 체력이 5 이하 && 아직 죽지 않았다면 사망 처리 실행
+        // 체력이 3 이하 && 아직 죽지 않았다면 사망 처리 실행
         if (health <= 3 && !dead)
         {
             DiePlayer();
@@ -27,7 +27,7 @@ public class LifeHealth : MonoBehaviour, IDamageAttack
     }
     public virtual void DamageStrPlayer(float damage)
     {
-        // 체력이 20 이하 && 아직 죽지 않았다면 사망 처리 실행
+        // 체력이 25 이하 && 아직 죽지 않았다면 사망 처리 실행
         if (health <= 25 && !dead)
         {
             DiePlayer();
@@ -61,24 +61,11 @@ public class LifeHealth : MonoBehaviour, IDamageAttack
     }
     public virtual void DamageStrBossMonster(float damage)
     {
-        // 체력이 20 이하 && 아직 죽지 않았다면 사망 처리 실행
+        // 체력이 25 이하 && 아직 죽지 않았다면 사망 처리 실행
         if (health <= 25 && !dead)
         {
             DieBossMonster();
         }
-    }
-    
-    // 체력을 회복하는 기능
-    public virtual void Rebirth(float newBirth)
-    {
-        if (dead)
-        {
-            // 이미 사망한 경우 체력을 회복할 수 없음
-            return;
-        }
-
-        // 체력 추가
-        health += newBirth;
     }
     // 플레이어 사망 처리
     public virtual void DiePlayer()
