@@ -11,11 +11,7 @@ public class CameraController : MonoBehaviour
     {
         freeLookCameraComponent = freeLookCamera.GetComponent<CinemachineFreeLook>();
         
-    }
-    void Start()
-    {
-        
-    }
+    }    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -25,7 +21,6 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             freeLookCameraComponent.m_XAxis.Value = -1;
-        }
-        
+        }        
     }
 }
