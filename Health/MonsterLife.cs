@@ -74,12 +74,7 @@ public class MonsterLife : LifeHealth
         health = startingHealth;
         //플레이어 조작을 받는 컴포넌트 활성화
         enemyController.enabled = true;
-    }
-    //부활 기능
-    public override void Rebirth(float newbirth)
-    {
-        base.Rebirth(newbirth);
-    }
+    }    
     //몬스터의 체력 감소 함수 및 감소시 메시 컬러 빨간색 변경
     public override void DamageMonster(float damage)
     {
@@ -102,7 +97,6 @@ public class MonsterLife : LifeHealth
     { 
         base.DamageMonster(damage);
         Instantiate(HitExplosion, HitExplosionPos.position, Quaternion.identity);
-
         attackNumber = float.Parse(attackText.text);
         //체력이 감소
         if (health > 0)
