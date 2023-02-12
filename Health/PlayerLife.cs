@@ -66,7 +66,6 @@ public class PlayerLife : LifeHealth
         reHealth = GetComponent<AudioSource>();
         reHealthClip = Resources.Load<AudioClip>("Audio/hpRehealth");
     }
-
     void Start()
     {
         //버튼 누를 때 함수 호출
@@ -75,21 +74,10 @@ public class PlayerLife : LifeHealth
     protected override void OnEnable()
     {
         base.OnEnable();
-
-        health = startingHealth;
-        
+        health = startingHealth;        
         //플레이어 조작을 받는 컴포넌트 활성화
         playerController.enabled = true;
-    }
-    //부활 처리
-    public override void Rebirth(float newBirth)
-    {
-        //부활 적용할 때
-        base.Rebirth(newBirth);
-
-        //갱신된 체력으로 체력 슬라이더 갱신
-        //healthSlider.value = health;
-    }
+    }    
     // 데미지 처리
     public override void DamagePlayer(float damage)
     {
