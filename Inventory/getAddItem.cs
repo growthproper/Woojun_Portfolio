@@ -23,9 +23,6 @@ public class getAddItem : MonoBehaviour
         //GetItemBox
         getItemBox = findGetItemBoxObj.GetComponent<getItemBox>();
 
-        //getItemBoxSlot의 static 변수
-        //getItemBoxSlot.currentIndex = 0;
-
         //아이템 효과음
         getItem = GetComponent<AudioSource>();
         getItemClip = Resources.Load<AudioClip>("Audio/getItem");
