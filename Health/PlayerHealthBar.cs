@@ -22,21 +22,14 @@ public class PlayerHealthBar : MonoBehaviour
     private void Awake()
     {
         canvasObj = GetComponentInChildren<Canvas>();
-        canvasObj.gameObject.name = "Canvas";
-        //이부분 다시
-        //HpObj = GetComponentInChildren<TextMeshProUGUI>();
-        //HpObj.gameObject.name = "HPText";
+        canvasObj.gameObject.name = "Canvas";        
         player = GetComponent<PlayerHealthBar>();
-
         sliderObj = GetComponentInChildren<Slider>();
         sliderObj.gameObject.name = "HealthSlider";
         slider = GetComponentInChildren<Slider>(sliderObj);
         player.Hp = HpObj;
         player.slider = sliderObj;
-
-
-        currentHP = maxHP;
-        //health = startingHealth;
+        currentHP = maxHP;        
     }
     private void Start()
     {
