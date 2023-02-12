@@ -18,12 +18,5 @@ public class CollisionAttackMonster : MonoBehaviour
         {
             player.GetComponent<IDamageAttack>().DamagePlayer(10);
         }
-    }
-   
-    //private IEnumerator EnemyAutoDisable()
-    //{
-    //    //0.1초 후에 오브젝트가 사라지도록 한다.
-    //    yield return new WaitForSeconds(0.1f);
-    //    gameObject.SetActive(false);
-    //}
+    }   
 }
