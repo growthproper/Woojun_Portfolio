@@ -12,10 +12,7 @@ public interface IDamageAttack
     void DamageStrMonster(float damage); //이펙트 효과
     //보스몬스터 데미지
     void DamageBossMonster(float damage);
-    void DamageStrBossMonster(float damage); //이펙트 효과
-
-    //부활 기능
-    void Rebirth(float newBirth);
+    void DamageStrBossMonster(float damage); //이펙트 효과   
     //플레이어 Die
     void DiePlayer();
     //몬스터 Die
