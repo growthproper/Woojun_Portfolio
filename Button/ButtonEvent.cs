@@ -12,14 +12,9 @@ public class ButtonEvent : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
         playerAni = player.GetComponent<Animator>();
         navPlayer = player.GetComponent<NavMeshAgent>();
-    }
-    void Start()
-    {
-   
-    }
+    }    
     public void PlayerAttackButton()
     {
         playerAni.SetInteger("aniIndex", 2);
@@ -32,5 +27,4 @@ public class ButtonEvent : MonoBehaviour
         playerAni.SetInteger("aniIndex", 0);
         Debug.Log("기본 공격 중지");
     }
-
 }
