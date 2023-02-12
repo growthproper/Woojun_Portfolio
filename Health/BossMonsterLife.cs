@@ -71,21 +71,11 @@ public class BossMonsterLife : LifeHealth
         base.OnEnable();
         bossHealthObj = GameObject.Find("Canvas").gameObject;
         bossMonsterLifeSlider = bossHealthObj.GetComponentInChildren<Slider>();
-
-        startingHealth = 350f;
-      
+        startingHealth = 350f;      
         health = startingHealth;
         //플레이어 조작을 받는 컴포넌트 활성화
         bossMonsterController.enabled = true;
-    }
-    //부활 기능
-    public override void Rebirth(float newbirth)
-    {
-        base.Rebirth(newbirth);
-
-        //갱신된 체력으로 체력 슬라이더 갱신
-        //healthSlider.value = health;
-    }
+    }    
     public override void DamageBossMonster(float damage)
     {
         base.DamageBossMonster(damage);
