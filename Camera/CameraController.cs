@@ -9,8 +9,7 @@ public class CameraController : MonoBehaviour
     public static CinemachineFreeLook freeLookCameraComponent;
     private void Awake()
     {
-        freeLookCameraComponent = freeLookCamera.GetComponent<CinemachineFreeLook>();
-        
+        freeLookCameraComponent = freeLookCamera.GetComponent<CinemachineFreeLook>();        
     }    
     void Update()
     {
